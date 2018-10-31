@@ -1,0 +1,96 @@
+
+                Layer 2 Discovery Module for LLDP
+                      Installation document
+                      (Version 1, Sep 2018)
+
+ ------------------
+  Tree Layout
+ ------------------
+
+./ .................... Top-Level Root Directory
+  COPYING ............. License description (GPL version 2)
+  ChangeLog ........... Binary package change history
+  INSTALL ............. This file
+  README .............. Overview of this distribution
+
+data/ ................. Configuration files for Zabbix
+  zabbix3.0/ .......... Configuration file for Zabbix 3.0
+    templates/ ........ LLDP monitoring template
+    value_mapping/ .... Configuration file for value mapping
+
+mibs/ ................. Management Information Base files
+  lldp-mibs/ .......... Management Information Base module for LLDP (LLDP-MIB)
+
+modules/ .............. Zabbix loadable modules
+  zabbix3.0/ .......... loadable module file for Zabbix 3.0
+  zabbix3.2/ .......... loadable module file for Zabbix 3.2
+  zabbix3.4/ .......... loadable module file for Zabbix 3.4
+
+
+ ------------------
+　Install
+ ------------------
+
+   How to install loadable module.
+  -----------------------------------
+
+  1. Store the LLDP-MIB files in a location according to Net-SNMP's MIBDIR setting.
+
+    ex) /usr/share/snmp/mibs/ 
+
+  2. Store the loadable module matching the version of Zabbix in place.
+
+    ex) /usr/lib/zabbix/modules/
+
+  3. Write a loadable module to the Zabbix configuration file.
+
+    ex) LoadModulePath=/usr/lib/zabbix/modules
+        LoadModule=lldp_get.so
+
+  4. Restart the Zabbix process.
+     Check the log and confirm that the following wording is recorded.
+     Depending on the version of Zabbix and log debug level, the display may differ.
+     (Sample is Zabbix 3.0, with debug log level 3)
+
+    ex) lldp_get module: loaded by server process. [1]
+        loaded modules: lldp_get.so
+
+  5. In the zabbix web interface, import the template and value mapping XML file.
+
+
+   How to setting the host
+  -----------------------------------
+
+  1. "Create Host" is done from setting screen.
+     Set the IP address in "Agent interfaces" and "SNMP interfaces".
+
+  2. Set "Template LLDP - General" or "Template LLDP - IndexNum" to the created host. (Select one)
+
+    Template LLDP - General .... Use "ifName" as the local port number
+    Template LLDP - IndexNum ... Use "ifIndex" as the local port number
+
+    Tips : In most cases, please use "Template LLDP - General".
+          If the local port number becomes "eth0" please try "Template LLDP - IndexNum".
+
+  3. Wait for low-level discovery to generate the item.
+
+
+ ------------------
+　Special function
+ ------------------
+
+   How to overwrite lldp.rem.sysname
+  -----------------------------------
+
+     o The neighboring device information can be overwritten using the host macro.
+       Only "lldp.rem.sysname" corresponds to forced overwrite function.
+
+  1. Check the Hostmacro Name from the Item-key you want to use forced overwrite function.
+
+    ex) Item-Key  : lldp.rem.sysname[{HOST.CONN},{$SNMP_COMMUNITY},1,7,{$FIXED_SYSNAME_1}]
+        MacroName : {$FIXED_SYSNAME_1}
+
+  2. On the setting screen of the host macro, set the MacroName to "Macro" and overwrite character string to "Value".
+
+
+# EOF

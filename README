@@ -1,5 +1,3 @@
-# snmp_lldp
-Zabbix SNMP LLDP  Topology Discovery
 
                 Layer 2 Discovery Module for LLDP
                       Introduction document
@@ -8,7 +6,7 @@ Zabbix SNMP LLDP  Topology Discovery
   What is it?
   -----------
 
-  The LLDP monitoring module provides a function to read adjacent device
+  The LLDP monitoring module provides a function to read adjacent device 
   information of LLDP held by network equipment from Zabbix using SNMP.
 
 
@@ -18,7 +16,7 @@ Zabbix SNMP LLDP  Topology Discovery
   Details of the latest version can be found in the Zabbix Share.
   Open the download page under https://share.zabbix.com/network_devices/l2-discovery-module-for-lldp
 
-
+  
   Licensing
   ---------
 
@@ -29,3 +27,4 @@ Zabbix SNMP LLDP  Topology Discovery
   ------------
 
   Please see the file called INSTALL.
+

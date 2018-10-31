@@ -1,0 +1,36 @@
+
+                Layer 2 Discovery Module for LLDP
+                 Compile & Installation document
+                      (Version 1, Sep 2018)
+
+  ---------
+   Compile
+  ---------
+
+  1. Prepare the same version of Zabbix source as you are installing to.
+     Supported version will be 2.2 or later.
+
+  2. Extract the Zabbix sources, and configure with appropriate options.
+     (To generate config.h necessary for module compilation.)
+
+  3. Place the module source at anywhere, and rewrite Makefile.
+     Specify the zabbix source directory for top_srcdir. 
+     (Either absolute path or relative path is acceptable.)
+
+     ex) top_srcdir = /usr/local/src/zabbix/zabbix-3.4.13
+
+  4. Run make to build, then it will be produced lldp_get.so.
+
+
+  ---------
+   Install
+  ---------
+
+  1. Copy lldp_get.so to the module directory specified in
+     Zabbix proxy / server configulation file.
+
+  2. Set "lldp_get.so" to LoadModule parameters in configuration file.
+
+  3. Restart Zabbix proxy / server.
+
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>3.0</version>
+    <date>2018-09-27T01:38:55Z</date>
+    <value_maps>
+        <value_map>
+            <name>LLDP LldpPortIdSubtype</name>
+            <mappings>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>interfaceAlias</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>portComponent</newvalue>
+                </mapping>
+                <mapping>
+                    <value>3</value>
+                    <newvalue>macAddress</newvalue>
+                </mapping>
+                <mapping>
+                    <value>4</value>
+                    <newvalue>networkAddress</newvalue>
+                </mapping>
+                <mapping>
+                    <value>5</value>
+                    <newvalue>interfaceName</newvalue>
+                </mapping>
+                <mapping>
+                    <value>6</value>
+                    <newvalue>agentCircuitId</newvalue>
+                </mapping>
+                <mapping>
+                    <value>7</value>
+                    <newvalue>local</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+    </value_maps>
+</zabbix_export>

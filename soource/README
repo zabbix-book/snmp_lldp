@@ -1,0 +1,32 @@
+
+                Layer 2 Discovery Module for LLDP
+                      Introduction document
+                      (Version 1, Sep 2018)
+
+  What is it?
+  -----------
+
+  The Layer 2 Discovery Module for LLDP is a Zabbix loadable module
+  that collects LLDP information accumulated in network equipment
+  by SNMP polling.
+
+
+  Requirements
+  ------------
+
+  Enough environment for which Zabbix can operate.
+  Libraries: Net-SNMP
+
+
+  Installation
+  ------------
+
+  Please see the file called INSTALL.
+
+
+  Licensing
+  ---------
+
+  Please see the file called COPYING. 
+
+
