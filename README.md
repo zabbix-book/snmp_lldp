@@ -1,4 +1,6 @@
 # snmp_lldp
+This project is a mirror for  https://share.zabbix.com/network_devices/l2-discovery-module-for-lldp
+
 Zabbix SNMP LLDP  Topology Discovery
 
                 Layer 2 Discovery Module for LLDP
